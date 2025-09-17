@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #2563EB;
+    --color-secondary: #FBBF24;
+}
+
+
+* {
+    font-family: Outfit;
+}
+
+.font-playfair {
+    font-family: Playfair !important;
+}
+
+@keyframes dash {
+    0% {
+        border-color: #ff0080;
+        box-shadow: 0 0 10px #ff0080;
+    }
+
+    25% {
+        border-color: #7928ca;
+        box-shadow: 0 0 10px #7928ca;
+    }
+
+    50% {
+        border-color: #2af598;
+        box-shadow: 0 0 10px #2af598;
+    }
+
+    75% {
+        border-color: #fec260;
+        box-shadow: 0 0 10px #fec260;
+    }
+
+    100% {
+        border-color: #ff0080;
+        box-shadow: 0 0 10px #ff0080;
+    }
+}
+
+.animate-dash {
+    animation: dash 2s linear infinite;
+}
+
+
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
