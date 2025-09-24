@@ -12,7 +12,7 @@ const NewsLetter = () => {
     };
 
     return (
-        <div className='flex justify-center items-center my-18 px-4 '>
+        <div className='flex justify-center items-center  mb-30 px-4 '>
             <div className="bg-[#1a1f2e] p-8 sm:p-12 rounded-3xl max-w-5xl w-full text-center shadow-2xl">
                 {/* Heading */}
                 <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl text-white mb-4">
