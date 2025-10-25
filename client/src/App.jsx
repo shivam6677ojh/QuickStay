@@ -1,35 +1,3 @@
-// import React from 'react'
-// import Navbar from './components/Navbar'
-// import { Route, Routes, useLocation } from 'react-router-dom'
-// import Home from './Pages/Home';
-// import Footer from './components/Footer';
-// import HotelRoom from './Pages/HotelRoom';
-// import RoomDetails from './Pages/RoomDetails';
-
-// const App = () => {
-
-//   const isOwnerPath = useLocation().pathname.includes("owner");
-
-//   return (
-//     <div>
-//       {!isOwnerPath && <Navbar />}
-
-//       <div className='min-h-[70vh]'>
-//         <Routes >
-//           <Route path='/' element={<Home />} />
-//           <Route path='/rooms' element={<HotelRoom />} />
-//           <Route path='/rooms/:id' element={<RoomDetails />} />
-//         </Routes>
-//       </div>
-//       <Footer />
-//     </div>
-
-//   )
-// }
-
-// export default App
-
-
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import { Route, Routes, useLocation } from "react-router-dom";
@@ -39,6 +7,15 @@ import HotelRoom from "./Pages/HotelRoom";
 import RoomDetails from "./Pages/RoomDetails";
 import HotelLoader from "./components/HotelLoader";
 import ContactHere from "./components/ContactHere";
+import MyBooking from "./Pages/MyBooking";
+import HotelReg from "./components/HotelReg";
+import Layout from "./Pages/HotelOwner/Layout";
+import ThemeToggle from "./components/ThemeToggle";
+import { ThemeProvider } from "./contexts/ThemeContext.jsx";
+import Dashboard from "./Pages/HotelOwner/Dashboard.jsx";
+import Atroom from "./Pages/HotelOwner/Atroom.jsx";
+import ListRoom from "./Pages/HotelOwner/ListRoom.jsx";
+
 
 const App = () => {
   const isOwnerPath = useLocation().pathname.includes("owner");
@@ -49,6 +26,7 @@ const App = () => {
     const timer = setTimeout(() => setLoading(false), 3000);
     return () => clearTimeout(timer);
   }, []);
+
 
   const styles = `
     @keyframes move-bg { from { background-position: 0 0; } to { background-position: 0 25px; } }
@@ -76,20 +54,33 @@ const App = () => {
   }
 
   return (
-    <div>
-      {!isOwnerPath && <Navbar />}
+    <ThemeProvider>
+      <div>
+        {!isOwnerPath && <Navbar />}
+        <ThemeToggle />
+        {false && <HotelReg />}
 
-      <div className="min-h-[70vh]">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/rooms" element={<HotelRoom />} />
-          <Route path="/rooms/:id" element={<RoomDetails />} />
-          <Route path="/contactHere" element={<ContactHere />} />
-        </Routes>
+        <div className="min-h-[70vh]">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/rooms" element={<HotelRoom />} />
+            <Route path="/rooms/:id" element={<RoomDetails />} />
+            <Route path="/contactHere" element={<ContactHere />} />
+            <Route path="/my-bookings" element={<MyBooking />} />
+
+            <Route path="/owner" element={<Layout />} >
+
+              <Route index element={ <Dashboard />} />
+              <Route path="add-room" element={<Atroom />} />
+              <Route path="list-room" element={<ListRoom />} />
+            </Route>
+
+          </Routes>
+        </div>
+
+        <Footer />
       </div>
-
-      <Footer />
-    </div>
+    </ThemeProvider>
   );
 };
 

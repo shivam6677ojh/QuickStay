@@ -4,7 +4,7 @@ const Title = ({ title, subTitle, align, font }) => {
     return (
         <div>
             <div
-                className={`relative flex flex-col justify-center items-center text-center p-6 rounded-xl bg-white shadow-lg transition-all duration-500 group hover:scale-105 ${align === "left" ? "md:items-start md:text-left" : ""
+                className={`relative flex flex-col cursor-pointer justify-center items-center text-center p-6 rounded-xl bg-white shadow-lg transition-all duration-500 group hover:scale-105 ${align === "left" ? "md:items-start md:text-left" : ""
                     }`}
             >
                 {/* Animated glowing border on hover */}

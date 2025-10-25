@@ -4,6 +4,7 @@ import React from "react";
 const HotelLoader = () => {
     const backgroundStyle = {
     background: "linear-gradient(-45deg, #6a11cb, #2e0249, #000000, #1a1a1a)",
+    // background: "linear-gradient(-45deg, #007BFF, #0A2463, #000000, #1a1a1a)",
     backgroundSize: "400% 400%",
     animation: "gradientBG 12s ease infinite",
 };

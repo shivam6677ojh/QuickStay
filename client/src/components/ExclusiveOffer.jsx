@@ -18,7 +18,7 @@ const ExclusiveOffer = () => {
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 md:mt-12 w-full'>
                 {exclusiveOffers.map((item) => {
 
-                    return (<div key={item.id} className='group relative min-h-72 flex flex-col items-start justify-between gap-1 pt-12 md:pt-18 px-4 rounded-xl text-white bg-no-repeat bg-cover bg-center'
+                    return (<div key={item._id} className='group relative min-h-72 flex flex-col items-start justify-between gap-1 pt-12 md:pt-18 px-4 rounded-xl text-white bg-no-repeat bg-cover bg-center'
                         style = {{ backgroundImage: `url(${item.image})` }}>
                             <p className='px-3 py-1 absolute top-4 left-4 text-xs bg-white text-gray-700 font-medium rounded-full'>{item.priceOff}% OFF</p>
                             
