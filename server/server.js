@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.get("/", (req,res) => {
     res.send("API is running fine")
+    console.log("API is running fine")
 })
 
 const PORT = process.env.PORT || 3000;
