@@ -11,7 +11,6 @@ import MyBooking from "./Pages/MyBooking";
 import HotelReg from "./components/HotelReg";
 import Layout from "./Pages/HotelOwner/Layout";
 import ThemeToggle from "./components/ThemeToggle";
-import { ThemeProvider } from "./contexts/ThemeContext.jsx";
 import Dashboard from "./Pages/HotelOwner/Dashboard.jsx";
 import Atroom from "./Pages/HotelOwner/Atroom.jsx";
 import ListRoom from "./Pages/HotelOwner/ListRoom.jsx";
@@ -54,14 +53,13 @@ const App = () => {
   }
 
   return (
-    <ThemeProvider>
-      <div>
-        {!isOwnerPath && <Navbar />}
-        <ThemeToggle />
-        {false && <HotelReg />}
+    <div>
+      {!isOwnerPath && <Navbar />}
+      <ThemeToggle />
+  {/* HotelReg intentionally disabled during development; enable when needed */}
 
-        <div className="min-h-[70vh]">
-          <Routes>
+      <div className="min-h-[70vh]">
+        <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/rooms" element={<HotelRoom />} />
             <Route path="/rooms/:id" element={<RoomDetails />} />
@@ -80,7 +78,6 @@ const App = () => {
 
         <Footer />
       </div>
-    </ThemeProvider>
   );
 };
 

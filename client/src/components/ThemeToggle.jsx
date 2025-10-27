@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTheme } from '../hooks/useTheme';
+import { useLocation } from 'react-router-dom';
 
 // const ThemeToggle = () => {
 //   const { isDarkMode, toggleTheme } = useTheme();
@@ -46,6 +47,15 @@ import { useTheme } from '../hooks/useTheme';
 
 const ThemeToggle = () => {
   const { isDarkMode, toggleTheme } = useTheme();
+  const location = useLocation();
+  const isOwnerPath = location.pathname.startsWith('/owner');
+
+  // Positioning: keep FAB on mobile (bottom-right), and top-right on desktop.
+  // On /owner, drop it slightly lower to avoid clashing with owner header.
+  const positionClasses = `
+    ${isOwnerPath ? 'top-20 right-4' : 'top-3 right-4'}
+    md:${isOwnerPath ? 'top-20 right-12' : 'top-3 right-12'}
+  `;
 
   return (
     // This parent div doesn't directly affect the fixed button, 
@@ -57,7 +67,8 @@ const ThemeToggle = () => {
     */}
     <button
       onClick={toggleTheme}
-      className="fixed top-3 right-12 z-999 p-3 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+      aria-pressed={isDarkMode}
+      className={`fixed ${positionClasses} z-[1000] p-3 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700`}
       aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDarkMode ? (

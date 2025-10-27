@@ -94,6 +94,14 @@ body {
     background-color: #121212 !important;
 }
 
+/* Ensure common gray backgrounds invert correctly in dark mode (owner layout, etc.) */
+.dark .bg-gray-50 {
+    background-color: #121212 !important;
+}
+.dark .bg-gray-100 {
+    background-color: #1a1a1a !important;
+}
+
 .dark .text-gray-700,
 .dark .text-gray-800,
 .dark .text-black {
